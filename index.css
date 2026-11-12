@@ -1,0 +1,870 @@
+
+
+
+:root {
+    --fundo: #f4eee4;
+    --papel: #fffaf2;
+    --papel-secundario: #eee3d3;
+    --marrom-escuro: #302117;
+    --marrom: #60432f;
+    --marrom-claro: #8b6545;
+    --dourado: #bd925a;
+    --terracota: #a65f42;
+    --texto: #40352b;
+    --borda: #e4d5c1;
+    --sombra: 0 8px 25px #49342612;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.8;
+    transition: background .35s, color .35s;
+}
+
+button {
+    font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 4px;
+}
+
+.pular {
+    position: absolute;
+    left: -9999px;
+    top: 10px;
+    background: var(--marrom-escuro);
+    color: white;
+    padding: 10px;
+    z-index: 999;
+}
+
+.pular:focus {
+    left: 10px;
+}
+
+
+
+header {
+    min-height: 360px;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(120deg, #24180fef, #62432eef),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0 18px,
+            #ffffff0a 18px 20px
+        );
+
+    color: #fff8ec;
+    border-bottom: 6px solid var(--dourado);
+}
+
+
+
+header::before,
+header::after {
+    content: "◇  ◆  ◇";
+    position: absolute;
+    font-size: 70px;
+    letter-spacing: 12px;
+    color: #e2bc7c;
+    opacity: .15;
+    pointer-events: none;
+}
+
+header::before {
+    left: -30px;
+    top: 25px;
+    transform: rotate(-25deg);
+}
+
+header::after {
+    right: -30px;
+    bottom: 20px;
+    transform: rotate(25deg);
+}
+
+.ornamento {
+    color: #d6ad72;
+    font-size: 27px;
+    letter-spacing: 12px;
+    margin-bottom: 18px;
+}
+
+.subtitulo {
+    color: #dfbd8d;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.25;
+    margin-bottom: 17px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 4px 12px #00000055;
+}
+
+header p {
+    color: #ead9c3;
+    font-size: 17px;
+}
+
+.linha-decorativa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 24px;
+    color: var(--dourado);
+}
+
+.linha-decorativa span {
+    width: 65px;
+    height: 1px;
+    background: var(--dourado);
+}
+
+
+
+nav {
+    background: #e9dece;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    border-bottom: 1px solid #d8c5aa;
+    box-shadow: 0 4px 15px #49342612;
+}
+
+nav a {
+    color: #493426;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 9px 13px;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.ativo {
+    background: var(--marrom);
+    color: white;
+}
+
+#tema {
+    background: var(--marrom);
+    color: white;
+    border: 1px solid #99744d;
+    border-radius: 25px;
+    padding: 10px 17px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: .3s;
+}
+
+#tema:hover {
+    background: var(--terracota);
+    transform: translateY(-2px);
+}
+
+
+
+main {
+    max-width: 1120px;
+    margin: 55px auto;
+    padding: 0 25px;
+}
+
+.cartao {
+    background: var(--papel);
+    padding: 38px;
+    margin-bottom: 32px;
+    border: 1px solid var(--borda);
+    border-left: 5px solid var(--dourado);
+    border-radius: 8px 15px 15px 8px;
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+    transition: background .3s, box-shadow .3s, transform .3s;
+}
+
+.cartao:hover {
+    box-shadow: 0 12px 30px #4934261c;
+    transform: translateY(-3px);
+}
+
+.numero-secao {
+    display: inline-block;
+    color: var(--terracota);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+
+
+h2 {
+    color: #765039;
+    font-size: clamp(23px, 3vw, 29px);
+    line-height: 1.4;
+    margin-bottom: 22px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--borda);
+}
+
+h3 {
+    color: var(--marrom-claro);
+    font-size: 20px;
+    margin-bottom: 9px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+strong {
+    color: var(--terracota);
+}
+
+ul {
+    padding-left: 24px;
+}
+
+
+
+.destaque {
+    background: var(--papel-secundario);
+    border-left: 4px solid var(--terracota);
+    padding: 19px 23px;
+    margin-top: 25px;
+    border-radius: 3px 10px 10px 3px;
+    color: var(--marrom);
+    font-style: italic;
+}
+
+
+.valores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.valor {
+    background: var(--papel-secundario);
+    border: 1px solid var(--borda);
+    padding: 22px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.valor:hover {
+    transform: translateY(-5px);
+    border-color: var(--dourado);
+}
+
+.valor span {
+    font-size: 27px;
+    color: var(--terracota);
+}
+
+.valor h3 {
+    margin-top: 8px;
+}
+
+.valor p {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.religiao-item {
+    padding: 17px 20px;
+    margin: 20px 0;
+    border-left: 3px solid var(--dourado);
+    background: var(--papel-secundario);
+    border-radius: 3px 9px 9px 3px;
+}
+
+
+
+.lista-acoes {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-acoes li {
+    padding: 12px 15px 12px 40px;
+    margin-bottom: 10px;
+    position: relative;
+    background: var(--papel-secundario);
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.lista-acoes li::before {
+    content: "✦";
+    position: absolute;
+    left: 15px;
+    color: var(--terracota);
+}
+
+.lista-acoes li:hover {
+    transform: translateX(5px);
+}
+
+
+
+.conclusao {
+    background: linear-gradient(135deg, #eee1ce, #fffaf2);
+}
+
+.frase-final {
+    text-align: center;
+    font-style: italic;
+    color: #765039;
+    font-size: 19px;
+    border-top: 1px solid var(--dourado);
+    border-bottom: 1px solid var(--dourado);
+    padding: 22px 10px;
+    margin-top: 25px;
+}
+
+
+
+#galeria {
+    background: #f0e6d8;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.filtro {
+    background: transparent;
+    border: 1px solid #9c7957;
+    color: var(--marrom);
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background: var(--marrom);
+    color: white;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.imagem {
+    background: var(--papel);
+    border: 1px solid var(--borda);
+    border-radius: 11px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px #49342615;
+    transition: .3s;
+}
+
+.imagem:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px #49342625;
+}
+
+.imagem[hidden] {
+    display: none;
+}
+
+.abrir-imagem {
+    width: 100%;
+    height: 230px;
+    display: block;
+    padding: 0;
+    border: none;
+    background: #ddd0be;
+    cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
+}
+
+.abrir-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s;
+}
+
+.imagem:hover img {
+    transform: scale(1.06);
+}
+
+.zoom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(transparent, #20150dcc);
+    font-size: 12px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.imagem:hover .zoom,
+.abrir-imagem:focus-visible .zoom {
+    opacity: 1;
+}
+
+.legenda {
+    padding: 15px 17px 18px;
+}
+
+.legenda span {
+    color: var(--terracota);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.legenda h3 {
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #130e0beF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 35px;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modal img {
+    max-width: min(90vw, 950px);
+    max-height: 75vh;
+    object-fit: contain;
+    border: 4px solid #d2b17e;
+    border-radius: 5px;
+}
+
+.modal p {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+
+footer {
+    background: linear-gradient(135deg, #281b12, #503725);
+    color: #f4e8d5;
+    text-align: center;
+    padding: 45px 20px;
+    border-top: 6px solid var(--dourado);
+}
+
+.ornamento-rodape {
+    color: var(--dourado);
+    font-size: 25px;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+}
+
+footer h2 {
+    display: inline-block;
+    color: #e8c797;
+    border-color: #8b6545;
+}
+
+footer h3 {
+    color: #e8c797;
+}
+
+footer p {
+    text-align: center;
+    margin: 16px 0 5px;
+}
+
+footer a {
+    display: inline-block;
+    color: #e7bd83;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: .3s;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+footer hr {
+    max-width: 650px;
+    margin: 25px auto;
+    border: none;
+    border-top: 1px solid #92714f;
+}
+
+.mensagem-rodape {
+    color: #e7bd83;
+    font-style: italic;
+}
+
+
+
+#topo {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--marrom);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px #00000030;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: .3s;
+    z-index: 90;
+}
+
+#topo.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#topo:hover {
+    background: var(--terracota);
+}
+
+
+.revelar {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+body.escuro {
+    --fundo: #1e1915;
+    --papel: #302720;
+    --papel-secundario: #40342a;
+    --texto: #eee2d2;
+    --borda: #584735;
+    --marrom: #a77a50;
+    --marrom-claro: #e0b985;
+    --dourado: #c49a61;
+    --terracota: #d0956d;
+
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+body.escuro nav {
+    background: #2a211a;
+    border-color: #584735;
+}
+
+body.escuro nav a {
+    color: #f0e3d2;
+}
+
+body.escuro nav a:hover,
+body.escuro nav a.ativo {
+    background: #916b47;
+    color: white;
+}
+
+body.escuro .cartao,
+body.escuro #galeria {
+    background: var(--papel);
+    border-color: var(--borda);
+}
+
+body.escuro h2,
+body.escuro h3 {
+    color: #e5bd85;
+}
+
+body.escuro p,
+body.escuro li {
+    color: #eee2d2;
+}
+
+body.escuro .destaque,
+body.escuro .valor,
+body.escuro .religiao-item,
+body.escuro .lista-acoes li {
+    background: #40342a;
+    color: #eee2d2;
+}
+
+body.escuro .frase-final {
+    color: #e5bd85;
+}
+
+body.escuro .imagem {
+    background: #40342a;
+    border-color: #584735;
+}
+
+body.escuro .filtro {
+    color: #eee2d2;
+    border-color: #a77a50;
+}
+
+body.escuro .filtro.ativo,
+body.escuro .filtro:hover {
+    background: #a77a50;
+    color: white;
+}
+
+body.escuro .legenda h3 {
+    color: #e5bd85;
+}
+
+body.escuro #tema,
+body.escuro #topo {
+    background: #916b47;
+    color: white;
+}
+
+body.escuro .conclusao {
+    background: #302720;
+}
+
+
+
+@media (max-width: 800px) {
+
+    .valores {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    nav {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 290px;
+        padding: 65px 18px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .subtitulo {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        position: relative;
+        padding: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
+
+    main {
+        margin: 30px auto;
+        padding: 0 13px;
+    }
+
+    .cartao {
+        padding: 23px 19px;
+        margin-bottom: 23px;
+    }
+
+    .valores,
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .abrir-imagem {
+        height: 240px;
+    }
+
+    .frase-final {
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 35px 17px;
+    }
+
+    #topo {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .revelar {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.video-musica {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto 20px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 4px solid #b58a52;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.video-musica iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.legenda-musica {
+    text-align: center;
+    font-style: italic;
+    color: #8b6745;
+    margin-top: 18px;
+}
+
+body.escuro .legenda-musica {
+    color: #e0bd8e;
+}.musica-youtube {
+    text-align: center;
+    padding: 35px 20px;
+    margin: 25px auto;
+    background: rgba(181, 138, 82, 0.12);
+    border: 1px solid #b58a52;
+    border-radius: 18px;
+}
+
+.icone-musica {
+    font-size: 55px;
+    color: #a66b35;
+}
+
+.botao-musica {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 25px;
+    background: #8b4d2e;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao-musica:hover {
+    background: #b58a52;
+    transform: translateY(-3px);
+}
